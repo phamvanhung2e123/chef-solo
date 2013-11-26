@@ -15,6 +15,10 @@ service 'nginx' do
 	action [ :enable, :start ]
 end
 
+service "iptables" do
+	action [ :disable, :stop]
+end
+
 template "nginx.conf" do
 	path "/etc/nginx/nginx.conf"
 	source "nginx.conf.erb"
